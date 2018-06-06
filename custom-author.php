@@ -42,7 +42,7 @@ function cus_author_createCustomField() {
 	 */
 	wp_nonce_field('custom_author_nonce' , 'custom_author_nonce');
 	?>
-    <div class="misc-pub-section misc-pub-section-last">
+    <div class="misc-pub-section misc-pub-section-last dashicons-before dashicons-admin-users">
         <label><b>作者：</b><input type="text" value="<?php echo $value ?>" name="_custom_author_name" /></label>
     </div>
     <?php   
