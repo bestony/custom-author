@@ -77,7 +77,7 @@ function cus_author_saveCustomField($post_id) {
 	 * 存在此项目就更新
 	 */
 	if (isset($_POST['_custom_author_name'])) {
-		update_post_meta($post_id, '_custom_author_name', $_POST['_custom_author_name']);
+		update_post_meta($post_id, '_custom_author_name', sanitize_text_field($_POST['_custom_author_name']));
 	} else {
 		/**
 		 * 不存在就删除
@@ -89,7 +89,6 @@ function cus_author_saveCustomField($post_id) {
 add_filter('the_author','cus_author_the_author');
 function cus_author_the_author($author){
     $custom_author = get_post_meta(get_the_ID(), '_custom_author_name');
-    //dd($custom_author);
     if ($custom_author) {
 		return $custom_author[0];
 	} else {
